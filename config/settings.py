@@ -31,12 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+    'api',
+    'userauths'
 ]
 
 MIDDLEWARE = [
@@ -121,3 +125,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Learning Managemnt System",
+    "site_header": "Learning Managemnt System",
+    "site_brand": "Learning Managemnt System ",
+    "welcome_sign": "Welcome to Learning Managemnt System",
+    "copyright": "Mahammad Muradov",
+    "show_ui_builder": True,
+}
