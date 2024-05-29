@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+from environs import Env
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,6 +52,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
     "corsheaders",
+    'anymail',
+
 ]
 
 MIDDLEWARE = [
@@ -183,3 +189,12 @@ JAZZMIN_SETTINGS = {
     "copyright": "Mahammad Muradov",
     "show_ui_builder": True,
 }
+
+# DEFAULT_FROM_EMAIL = "Learning Management System <mmahhammad.muradd@gmail.com>"
+# DEFAULT_TO_EMAIL = "mahammad.muradd@gmail.com"
+
+EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
+ANYMAIL = {
+    "SENDINBLUE_API_KEY": env("SENDINBLUE_API_KEY"),
+}
+FROM_EMAIL = env("FROM_EMAIL")
